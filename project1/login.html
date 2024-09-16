@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BB login</title>
+    <link rel="stylesheet" href="./static/logincss.css">
+    <style>
+        html,body{
+    height: 100vh;
+    margin: 0px;
+}
+body{
+    background-image: url("./assets/loginbriyani.jpg");
+    background-size: 100%;
+    background-position: flex ;
+    background-repeat: no-repeat;
+    image-resolution: 100%;
+    padding-bottom: 10px;
+    
+    
+}
+.container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signin{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    border: 2px white solid;
+    margin: 50px;
+    border-radius: 15px;
+    
+   
+}
+.login{
+    display: none;
+    border: 1px white solid ;
+    
+
+}
+.signin h1{
+    position: relative;
+    bottom: 20px;
+}
+.signin input{
+    border: 1px white solid;
+    height: 30px;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    padding: auto;
+}
+.signin label{
+    font-size: medium;
+    position: relative;
+    top: 0px;
+    left: 10px;
+    width: fit-content;
+    background-color:transparent
+    font 
+    
+    
+   
+}
+.signin button{
+    color: white;
+    background-color: transparent;
+    border: 2px white solid;
+    border-radius: 10px;
+    height: 30px;
+    padding: auto;
+    
+}
+.signin button:hover{
+    background-color: white;
+    color: black;
+}
+
+
+.login{
+    display: none;
+    flex-direction: column;
+    padding: 50px;
+    border: 1px white solid;
+    text-align: center;
+    margin: 50px;
+}
+.login h1{
+    position: relative;
+    bottom: 20px;
+}
+.login input{
+    border: 1px white solid;
+    height: 30px;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+}
+.login label{
+    font-size: small;
+    position: relative;
+    top: 0px;
+    left: 10px;
+    width: fit-content;
+    background-color:transparent;
+}
+.login button{
+    color: white;
+    background-color: transparent;
+    border: 3px white solid;
+    border-radius: 10px;
+    height: 30px;
+}
+.login button:hover{
+    background-color: white;
+    color: black;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signin" id="signin">
+            <h1>Signin</h1>
+            <label for="name">Username</label>
+            <input type="text" name="user" id="user" required><br>
+            <label for="email">Email</label>
+            <input type="email" name="Email" id="email" required><br>
+            <label for="Password">Password</label>
+            <input type="password" name="pass" id="pass" required><br>
+            <label for="C-password">Confirm password</label>
+            <input type="password" name="c_pass" id="c_pass" required><br>
+            <br>
+            <button onclick="signin()">Submit</button>
+
+        </div>
+        <div class="login" id="login">
+            <h1>Login</h1>
+            <label for="email">Email</label>
+            <input type="email" name="l_Email" id="l_email"><br>
+            <label for="Password">Password</label>
+            <input type="password" name="l_pass" id="l_pass"><br>
+            <br>
+            <button onclick="login()">Submit</button>
+        </div>
+    </div>
+    <script src="./frontpage.js"></script>
+</body>
+
+</html>

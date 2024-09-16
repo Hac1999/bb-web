@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachelor's Biriyani Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffd230; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .payment-container {
+            background: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h1, h3 {
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            margin-bottom: 0;
+        }
+        h3 {
+            font-style: italic;
+            margin-top: 5px;
+            color: #555;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group select {
+            background-color: #ffd230;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #ffd230;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #e6bf2c;
+        }
+        .payment-method {
+            display: none;
+        }
+        .company-details {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        
+        <div class="company-details">
+            <h1>Bachelor's Biriyani</h1>
+            <h3>Every bite sparks your Emotion</h3>
+        </div>
+
+        
+        <form id="paymentForm">
+            
+            <div class="form-group">
+                <label for="userName">Name</label>
+                <input type="text" id="userName" name="userName" placeholder="Enter your full name">
+            </div>
+
+            
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number">
+            </div>
+
+            
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address">
+            </div>
+
+            
+            <div class="form-group">
+                <label for="landmark">Landmark</label>
+                <input type="text" id="landmark" name="landmark" placeholder="Enter nearby landmark">
+            </div>
+
+            
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method</label>
+                <select id="paymentMethod">
+                    <option value="">Select a payment method</option>
+                    <option value="cash">Cash on Delivery</option>
+                    <option value="gpay">GPay</option>
+                    <option value="paytm">Paytm</option>
+                    <option value="creditCard">Credit Card</option>
+                    <option value="debitCard">Debit Card</option>
+                </select>
+            </div>
+
+            
+
+            
+            <div id="gpayPayment" class="payment-method">
+                <div class="form-group">
+                    <label for="gpayId">GPay UPI ID</label>
+                    <input type="text" id="gpayId" name="gpayId" placeholder="Enter your GPay UPI ID">
+                </div>
+            </div>
+
+            
+            <div id="paytmPayment" class="payment-method">
+                <div class="form-group">
+                    <label for="paytmNumber">Paytm Phone Number</label>
+                    <input type="tel" id="paytmNumber" name="paytmNumber" placeholder="Enter your Paytm number">
+                </div>
+            </div>
+
+            
+            <div id="creditCardPayment" class="payment-method">
+                <div class="form-group">
+                    <label for="creditCardNumber">Credit Card Number</label>
+                    <input type="text" id="creditCardNumber" name="creditCardNumber" placeholder="Enter credit card number">
+                </div>
+                <div class="form-group">
+                    <label for="creditCardExpiry">Expiry Date</label>
+                    <input type="text" id="creditCardExpiry" name="creditCardExpiry" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="creditCardCVV">CVV</label>
+                    <input type="text" id="creditCardCVV" name="creditCardCVV" placeholder="Enter CVV">
+                </div>
+            </div>
+
+            
+            <div id="debitCardPayment" class="payment-method">
+                <div class="form-group">
+                    <label for="debitCardNumber">Debit Card Number</label>
+                    <input type="text" id="debitCardNumber" name="debitCardNumber" placeholder="Enter debit card number">
+                </div>
+                <div class="form-group">
+                    <label for="debitCardExpiry">Expiry Date</label>
+                    <input type="text" id="debitCardExpiry" name="debitCardExpiry" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="debitCardCVV">CVV</label>
+                    <input type="text" id="debitCardCVV" name="debitCardCVV" placeholder="Enter CVV">
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <button type="submit">Proceed to Pay</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        const paymentMethodSelect = document.getElementById('paymentMethod');
+        const gpayPaymentDiv = document.getElementById('gpayPayment');
+        const paytmPaymentDiv = document.getElementById('paytmPayment');
+        const creditCardPaymentDiv = document.getElementById('creditCardPayment');
+        const debitCardPaymentDiv = document.getElementById('debitCardPayment');
+
+        paymentMethodSelect.addEventListener('change', function () {
+            const selectedMethod = paymentMethodSelect.value;
+            gpayPaymentDiv.style.display = 'none';
+            paytmPaymentDiv.style.display = 'none';
+            creditCardPaymentDiv.style.display = 'none';
+            debitCardPaymentDiv.style.display = 'none';
+            if (selectedMethod === 'gpay') {
+                gpayPaymentDiv.style.display = 'block';
+            } else if (selectedMethod === 'paytm') {
+                paytmPaymentDiv.style.display = 'block';
+            } else if (selectedMethod === 'creditCard') {
+                creditCardPaymentDiv.style.display = 'block';
+            } else if (selectedMethod === 'debitCard') {
+                debitCardPaymentDiv.style.display = 'block';
+            }
+        });
+        document.getElementById('paymentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            alert('Payment processed successfully!');
+        });
+    </script>
+</body>
+</html>
